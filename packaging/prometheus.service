@@ -1,0 +1,17 @@
+[Unit]
+Description=Prometheus Monitoring System
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=prometheus
+Environment=OPTIONS=
+EnvironmentFile=-/etc/default/prometheus
+EnvironmentFile=-/etc/sysconfig/prometheus
+ExecStart=/usr/bin/prometheus --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus $OPTIONS
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

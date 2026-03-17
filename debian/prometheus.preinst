@@ -1,0 +1,8 @@
+#!/bin/sh
+set -e
+
+if ! getent passwd prometheus >/dev/null 2>&1; then
+    adduser --system --group --no-create-home --home /nonexistent --shell /usr/sbin/nologin prometheus || true
+fi
+
+exit 0

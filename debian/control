@@ -1,0 +1,17 @@
+Source: prometheus
+Section: net
+Priority: optional
+Maintainer: Petr Bena <petr@bena.rocks>
+Build-Depends: debhelper-compat (= 12),
+ golang-any
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+
+Package: prometheus
+Architecture: any
+Depends: ${misc:Depends}, adduser
+Description: Prometheus monitoring system and time series database
+ Prometheus collects metrics from configured targets and stores them as
+ time series data.
+ .
+ This package provides the Prometheus server daemon and systemd unit.

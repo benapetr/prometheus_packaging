@@ -1,0 +1,32 @@
+# Generic package artifacts
+*.deb
+*.rpm
+*.src.rpm
+*.dsc
+*.changes
+*.build
+*.buildinfo
+*.tar.xz
+*.tar.gz
+
+# Common output dirs
+**/packaging/output/
+
+# Debian build outputs
+**/debian/.debhelper/
+**/debian/debhelper-build-stamp
+**/debian/files
+**/debian/*.debhelper.log
+**/debian/*.substvars
+**/debian/node-exporter/
+**/debian/prometheus/
+**/debian/tmp/
+**/debian/build/
+
+# Local helper scripts/output generated during experimentation
+**/packaging/d1
+**/packaging/d2
+**/packaging/run_all
+
+# RPM build tree (if created in repo)
+**/rpmbuild/

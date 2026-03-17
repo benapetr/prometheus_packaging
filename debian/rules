@@ -1,0 +1,24 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	:
+
+override_dh_auto_build:
+	mkdir -p debian/build
+	mkdir -p debian/build/gocache debian/build/gomodcache debian/build/gopath
+	cd src/prometheus && CGO_ENABLED=0 GOTOOLCHAIN=local GOCACHE=$(CURDIR)/debian/build/gocache GOMODCACHE=$(CURDIR)/debian/build/gomodcache GOPATH=$(CURDIR)/debian/build/gopath go build -trimpath -buildvcs=false -ldflags "-s -w" -o ../../debian/build/prometheus ./cmd/prometheus
+
+override_dh_auto_install:
+	:
+
+override_dh_installsystemd:
+	dh_installsystemd --name=prometheus
+
+override_dh_clean:
+	rm -rf debian/build
+	dh_clean

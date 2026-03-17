@@ -1,0 +1,13 @@
+#!/bin/bash
+
+APP_NAME="prometheus"
+APP_BINARY="prometheus"
+MAINTAINER="Petr Bena <petr@bena.rocks>"
+DESCRIPTION="Prometheus monitoring system and time series database"
+
+_SRC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../src" && pwd)"
+if [ -f "$_SRC_DIR/prometheus/VERSION" ]; then
+    APP_VERSION="$(cat "$_SRC_DIR/prometheus/VERSION")"
+else
+    APP_VERSION="0.0.0"
+fi

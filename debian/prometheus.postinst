@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+mkdir -p /var/lib/prometheus
+chown prometheus:prometheus /var/lib/prometheus || true
+
+exit 0

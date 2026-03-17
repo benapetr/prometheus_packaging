@@ -1,0 +1,3 @@
+debian/build/prometheus usr/bin/
+packaging/prometheus.default etc/default/prometheus
+packaging/prometheus.yml etc/prometheus/prometheus.yml
